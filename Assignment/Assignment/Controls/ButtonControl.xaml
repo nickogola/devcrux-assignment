@@ -22,6 +22,16 @@
                             <x:String>share</x:String>
                         </Picker.Items>
                     </Picker>
+                    <Label Text="Select Button Color"/>
+                    <Picker VerticalOptions="FillAndExpand" x:Name="colorPicker">
+                        <Picker.Items>
+                            <x:String>Blue</x:String>
+                            <x:String>Purple</x:String>
+                            <x:String>Green</x:String>
+                            <x:String>Yellow</x:String>
+                            <x:String>Gray</x:String>
+                        </Picker.Items>
+                    </Picker>
                 </StackLayout>
             </Frame>
             <Frame CornerRadius="20" Padding="10,10" Margin="20,40" x:Name="myLayout">

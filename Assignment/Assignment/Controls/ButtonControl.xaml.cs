@@ -28,13 +28,24 @@ namespace Assignment.Controls
         {
             btnLabel.Text = entrytxt.Text;
             btnIcon.Source = $"{imgPicker.SelectedItem.ToString()}.png";
-            if (myLayout.BackgroundColor.Equals(Color.FromHex("009688")))
+
+            switch (colorPicker.SelectedItem.ToString())
             {
-                myLayout.BackgroundColor = Color.FromHex("#219e62");
-            }
-            else
-            {
-                myLayout.BackgroundColor = Color.FromHex("#009688");
+                case "Blue":
+                    myLayout.BackgroundColor = Color.FromHex("#0a528b");
+                    break;
+                case "Purple":
+                    myLayout.BackgroundColor = Color.FromHex("#80189e");
+                    break;
+                case "Green":
+                    myLayout.BackgroundColor = Color.FromHex("#12650f");
+                    break;
+                case "Yellow":
+                    myLayout.BackgroundColor = Color.FromHex("#ffc220");
+                    break;
+                case "Gray":
+                    myLayout.BackgroundColor = Color.FromHex("#ccc");
+                    break;
             }
         }
 
