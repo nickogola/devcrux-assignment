@@ -9,7 +9,7 @@
 
     <StackLayout>
         <!-- Place new controls here -->
-        <c:ButtonControl Title="{Binding UserTitle}" BackgroundColor="{Binding ColorHex}" />
+        <c:ButtonControl Title="{Binding UserTitle}" ColorHex="{Binding ColorHx}"  />
     </StackLayout>
 
 </ContentPage>

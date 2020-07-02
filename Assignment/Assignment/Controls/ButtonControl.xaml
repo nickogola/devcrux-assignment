@@ -7,8 +7,34 @@
              x:Class="Assignment.Controls.ButtonControl">
   <ContentView.Content>
       <StackLayout>
-            <Frame CornerRadius="20" Padding="10,50">
-                <Button ImageSource="play.png" Text="Proceed" x:Name="customBtn" CornerRadius="20" BackgroundColor="LightGray"/>
+            <Label Text="Customize by entering text and selecting icon then tap the button" Padding="15" />
+            <Frame CornerRadius="20" Padding="10,10" Margin="20,40">
+                <StackLayout>
+                    <Label Text="Enter Button text"/>
+                    <Entry x:Name="entrytxt" />
+                    <Label Text="Select Button Icon"/>
+                    <Picker VerticalOptions="FillAndExpand" x:Name="imgPicker">
+                        <Picker.Items>
+                            <x:String>download</x:String>
+                            <x:String>play</x:String>
+                            <x:String>pause</x:String>
+                            <x:String>next</x:String>
+                            <x:String>share</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </StackLayout>
+            </Frame>
+            <Frame CornerRadius="20" Padding="10,10" Margin="20,40" x:Name="myLayout">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Pressed" />
+                </Frame.GestureRecognizers>
+                
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
+                        <Label FontSize="18" x:Name="btnLabel" FontAttributes="Bold" VerticalOptions="Center" TextColor="White" />
+                        <Image Source="play.png" x:Name="btnIcon" VerticalOptions="Center"  />
+                    </StackLayout>
+            
+                <!--<Button ImageSource="play.png" Text="Proceed" x:Name="customBtn" CornerRadius="20" BackgroundColor="LightGray"/>-->
             </Frame>
         </StackLayout>
   </ContentView.Content>

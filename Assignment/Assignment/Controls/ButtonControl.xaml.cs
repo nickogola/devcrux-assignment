@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,26 +16,25 @@ namespace Assignment.Controls
         public ButtonControl()
         {
             InitializeComponent();
-            customBtn.Text = "Proceed";
-            customBtn.TextColor = Color.White;
-            customBtn.BackgroundColor = Color.ForestGreen;
+            myLayout.BackgroundColor = Color.FromHex("#009688");
+        }
 
-            customBtn.Pressed += Button_Pressed;
+        private void Entrytxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Title = e.NewTextValue;
         }
 
         private void Button_Pressed(object sender, EventArgs e)
         {
-            var customBtn = sender as Button;
-            if (customBtn.Text.Equals("Testing")) {
-                customBtn.Text = "Proceed";
-                customBtn.BackgroundColor = Color.ForestGreen;
-                customBtn.ImageSource = "play.png";
+            btnLabel.Text = entrytxt.Text;
+            btnIcon.Source = $"{imgPicker.SelectedItem.ToString()}.png";
+            if (myLayout.BackgroundColor.Equals(Color.FromHex("009688")))
+            {
+                myLayout.BackgroundColor = Color.FromHex("#219e62");
             }
             else
             {
-                customBtn.Text = "Testing";
-                customBtn.BackgroundColor = Color.SteelBlue;
-                customBtn.ImageSource = "next.png";
+                myLayout.BackgroundColor = Color.FromHex("#009688");
             }
         }
 
@@ -42,13 +42,13 @@ namespace Assignment.Controls
                                                                                         typeof(string),
                                                                                         typeof(ButtonControl),
                                                                                         default(string),
-                                                                                        BindingMode.OneWay);
+                                                                                        BindingMode.TwoWay);
 
-        public static readonly BindableProperty TextProperty = BindableProperty.Create(nameof(Text),
-                                                                                      typeof(string),
-                                                                                      typeof(ButtonControl),
-                                                                                      default(string),
-                                                                                      BindingMode.TwoWay);
+        //public static readonly BindableProperty TextProperty = BindableProperty.Create(nameof(Text),
+        //                                                                              typeof(string),
+        //                                                                              typeof(Image),
+        //                                                                              default(string),
+        //                                                                              BindingMode.TwoWay);
 
         public static readonly BindableProperty ColorHexProperty = BindableProperty.Create(nameof(ColorHex),
                                                                                   typeof(string),
@@ -62,16 +62,32 @@ namespace Assignment.Controls
             set { SetValue(TitleProperty, value); }
         }
 
-        public string Text
-        {
-            get { return (string)GetValue(TextProperty); }
-            set { SetValue(TextProperty, value); }
-        }
+        //public string Text
+        //{
+        //    get { return (string)GetValue(TextProperty); }
+        //    set { SetValue(TextProperty, value); }
+        //}
 
         public string ColorHex
         {
             get { return (string)GetValue(ColorHexProperty); }
             set { SetValue(ColorHexProperty, value); }
         }
+
+        protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            base.OnPropertyChanged(propertyName);
+
+            if (propertyName == TitleProperty.PropertyName)
+            {
+                btnLabel.Text = Title;
+            }
+
+            if(propertyName == ColorHexProperty.PropertyName)
+            {
+                myLayout.BackgroundColor = Color.FromHex(ColorHex);
+            }
+        }
+
     }
 }

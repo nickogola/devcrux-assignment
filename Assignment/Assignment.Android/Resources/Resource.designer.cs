@@ -5734,7 +5734,7 @@ namespace Assignment.Droid
 			public const int design_snackbar_background = 2131165281;
 			
 			// aapt resource value: 0x7F070062
-			public const int download_icon = 2131165282;
+			public const int download = 2131165282;
 			
 			// aapt resource value: 0x7F070063
 			public const int ic_mtrl_chip_checked_black = 2131165283;
@@ -5794,13 +5794,19 @@ namespace Assignment.Droid
 			public const int notify_panel_notification_icon_bg = 2131165301;
 			
 			// aapt resource value: 0x7F070076
-			public const int play = 2131165302;
+			public const int pause = 2131165302;
 			
 			// aapt resource value: 0x7F070077
-			public const int tooltip_frame_dark = 2131165303;
+			public const int play = 2131165303;
 			
 			// aapt resource value: 0x7F070078
-			public const int tooltip_frame_light = 2131165304;
+			public const int share = 2131165304;
+			
+			// aapt resource value: 0x7F070079
+			public const int tooltip_frame_dark = 2131165305;
+			
+			// aapt resource value: 0x7F07007A
+			public const int tooltip_frame_light = 2131165306;
 			
 			static Drawable()
 			{

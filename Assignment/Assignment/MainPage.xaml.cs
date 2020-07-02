@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -16,8 +17,8 @@ namespace Assignment
         public MainPage()
         {
             InitializeComponent();
-            userTitle = "Click me";
-            colorHex = "#000333";
+            userTitle = "Proceed";
+            colorHx = "#0a528b";
             this.BindingContext = this;
         }
 
@@ -29,14 +30,13 @@ namespace Assignment
             set { userTitle = value; }
         }
 
-        private string colorHex;
+        private string colorHx;
 
-        public string ColorHex
+        public string ColorHx
         {
-            get { return colorHex; }
-            set { colorHex = value; }
+            get { return colorHx; }
+            set { colorHx = value; }
         }
 
-
-    }
+   }
 }
